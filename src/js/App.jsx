@@ -1,7 +1,9 @@
 import React from 'react';
 import '../css/App.css';
 
-import { Topbar, Sidebar } from './components';
+import {
+  Topbar, Sidebar, VideosPanel,
+} from './components';
 
 function App() {
   return (
@@ -14,6 +16,10 @@ function App() {
         
           <div className='col-md-2'>
             <Sidebar />
+          </div>
+
+          <div className='col-md-10'>
+            <VideosPanel />
           </div>
 
         </div>

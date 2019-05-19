@@ -92,3 +92,9 @@ body {
 .App .App-sidebar > ul.menu > ul > li:hover {
             border-left: solid var(--orange) 1px;
           }
+
+.App .App-panel > .panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
