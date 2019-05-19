@@ -11,7 +11,7 @@ function App() {
       
       <Topbar />
 
-      <div className='container-fluid'>
+      <div className='container-fluid content-wrapper'>
         <div className='row'>
         
           <div className='col-md-2'>
