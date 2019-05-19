@@ -11,9 +11,18 @@ export default class VideosPanel extends Component {
           </div>
 
           <div>
-            <button className='bundle'>Create Bundle</button>
-            <button className='assign'>Assign Videos</button>
-            <button className='search'>Search</button>
+            <span>Please select and option</span>
+            <button className='bundle'>
+              <i class="fas fa-box"></i>
+              Create Bundle
+            </button>
+            <button className='assign'>
+              <i class="fas fa-play"></i>
+              Assign Videos
+            </button>
+            <button className='search'>
+              <i class="fas fa-search"></i>
+            </button>
           </div>
         </div>
 
