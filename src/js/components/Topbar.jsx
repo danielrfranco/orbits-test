@@ -1,22 +1,22 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-export default class Topbar extends Component {
+const Topbar = props => {
 
-  render () {
-    return (
-      <header className='App-header'>
-        <div className='container'>
-          <div className='row'>
-            <div>
-              Some logo
-            </div>
-            <div>
-              Logout
-            </div>
+  return (
+    <header className='App-header'>
+      <div className='container'>
+        <div className='row'>
+          <div>
+            Some logo
+          </div>
+          <div>
+            Logout
           </div>
         </div>
-      </header>
-    );
-  }
+      </div>
+    </header>
+  );
 
 }
+
+export default Topbar;
