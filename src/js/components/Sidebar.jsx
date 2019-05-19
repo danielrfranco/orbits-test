@@ -15,7 +15,7 @@ const Sidebar = props => {
       <div className='email'>james@medtrainer.com</div>
 
       <ul className='menu'>
-        <li>Video Distribution</li>
+        <li className='active'>Video Distribution</li>
         <li>Analytics Dashboard</li>
         <ul>
           <li>Monitoring Dashboard</li>
