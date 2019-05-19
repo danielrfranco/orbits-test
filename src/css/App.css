@@ -7,6 +7,11 @@
   --dark-grey: #51606C;
   --orange: #EA8231;
   --green: #1AA89D;
+
+  --sm: 576px;
+  --md: 768px;
+  --lg: 992px;
+  --xl: 1200px;
 }
 
 body {
@@ -143,3 +148,135 @@ body {
         .App .App-panel > .panel-header button i.fa-play {
           margin-right: 0.375rem;
         }
+
+.App .App-panel > .panel-content-wrapper {
+	display: grid;
+	align-content: stretch;
+
+      grid-template: "a" 6.25rem "." 1.5rem "a" 6.25rem / 1fr
+    }
+
+.App .App-panel > .panel-content-wrapper > .vid {
+	grid-area: a;
+}
+
+.App .App-panel > .panel-content-wrapper > .vid {
+	grid-area: a;
+}
+
+@media (min-width: 578px) {
+
+    .App .App-panel > .panel-content-wrapper {
+	display: grid;
+	align-content: stretch;
+	justify-content: space-between;
+        grid-template: "a . a" 6.25rem ". . ." 1.5rem "a . a" 6.25rem / 1fr 2.125rem 1fr
+    }
+
+.App .App-panel > .panel-content-wrapper > .vid {
+	grid-area: a;
+}
+
+.App .App-panel > .panel-content-wrapper > .vid {
+	grid-area: a;
+}
+
+.App .App-panel > .panel-content-wrapper > .vid {
+	grid-area: a;
+}
+
+.App .App-panel > .panel-content-wrapper > .vid {
+	grid-area: a;
+}
+      }
+
+@media (min-width: 768px) {
+
+    .App .App-panel > .panel-content-wrapper {
+	display: grid;
+	align-content: stretch;
+	justify-content: space-between;
+        grid-template: "a . a . a" 6.25rem ". . . . ." 1.5rem "a . a . a" 6.25rem / 1fr 2.125rem 1fr 2.125rem 1fr
+    }
+
+.App .App-panel > .panel-content-wrapper > .vid {
+	grid-area: a;
+}
+
+.App .App-panel > .panel-content-wrapper > .vid {
+	grid-area: a;
+}
+
+.App .App-panel > .panel-content-wrapper > .vid {
+	grid-area: a;
+}
+
+.App .App-panel > .panel-content-wrapper > .vid {
+	grid-area: a;
+}
+
+.App .App-panel > .panel-content-wrapper > .vid {
+	grid-area: a;
+}
+
+.App .App-panel > .panel-content-wrapper > .vid {
+	grid-area: a;
+}
+      }
+
+@media (min-width: 992px) {
+
+    .App .App-panel > .panel-content-wrapper {
+	display: grid;
+	align-content: space-between;  
+        grid-template: "a . a . a . a" 6.25rem ". . . . . . ." 1.5rem "a . a . a . a" 6.25rem ". . . . . . ." 1.5rem "a . a . a . a" 6.25rem / 1fr 2.125rem 1fr 2.125rem 1fr 2.125rem 1fr
+    }
+
+.App .App-panel > .panel-content-wrapper > .vid {
+	grid-area: a;
+}
+
+.App .App-panel > .panel-content-wrapper > .vid {
+	grid-area: a;
+}
+
+.App .App-panel > .panel-content-wrapper > .vid {
+	grid-area: a;
+}
+
+.App .App-panel > .panel-content-wrapper > .vid {
+	grid-area: a;
+}
+
+.App .App-panel > .panel-content-wrapper > .vid {
+	grid-area: a;
+}
+
+.App .App-panel > .panel-content-wrapper > .vid {
+	grid-area: a;
+}
+
+.App .App-panel > .panel-content-wrapper > .vid {
+	grid-area: a;
+}
+
+.App .App-panel > .panel-content-wrapper > .vid {
+	grid-area: a;
+}
+
+.App .App-panel > .panel-content-wrapper > .vid {
+	grid-area: a;
+}
+
+.App .App-panel > .panel-content-wrapper > .vid {
+	grid-area: a;
+}
+
+.App .App-panel > .panel-content-wrapper > .vid {
+	grid-area: a;
+}
+
+.App .App-panel > .panel-content-wrapper > .vid {
+	grid-area: a;
+}
+      }

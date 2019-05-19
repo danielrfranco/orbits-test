@@ -10,7 +10,7 @@ const Topbar = props => {
             Some logo
           </div>
           <div>
-            <i class="fas fa-power-off"></i>
+            <i className="fas fa-power-off"></i>
             Logout
           </div>
         </div>
