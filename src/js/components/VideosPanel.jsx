@@ -50,14 +50,28 @@ export default class VideosPanel extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      assignVideosFunctionality: false,
-      assignedVideos: [],
+      selectVideosFunctionality: false,
+      selectedVideos: [],
+      assignVideos: false,
+      createBundle: false,
     };
+
+    this.resetState = this.resetState.bind(this);
+  }
+
+  resetState() {
+    this.setState({
+      selectVideosFunctionality: false,
+      selectedVideos: [],
+      assignVideos: false,
+      createBundle: false,
+    });
   }
 
   render() {
     const {
-      assignVideosFunctionality, assignedVideos,
+      selectVideosFunctionality, selectedVideos,
+      assignVideos, createBundle,
     } = this.state;
 
     return (
@@ -70,16 +84,26 @@ export default class VideosPanel extends Component {
 
           <div>
             <span>Please select and option</span>
-            <button className='bundle'>
+            <button
+              className='bundle'
+              disabled={selectVideosFunctionality}
+              onClick={() => {
+                this.setState({
+                  selectVideosFunctionality: true,
+                  createBundle: true,
+                });
+              }}
+            >
               <i className='fas fa-box'></i>
               Create Bundle
             </button>
             <button
               className='assign'
-              disabled={assignVideosFunctionality}
+              disabled={selectVideosFunctionality}
               onClick={() => {
                 this.setState({
-                  assignVideosFunctionality: true,
+                  selectVideosFunctionality: true,
+                  assignVideos: true,
                 });
               }}
             >
@@ -99,6 +123,68 @@ export default class VideosPanel extends Component {
           </select>
         </div>
 
+        {
+          createBundle
+            ? (
+              <div className='create-bundle-panel action-panel'>
+                <span className='title'>Create bundle</span>
+                <span className='description'>Select the videos you want to add to the bundle</span>
+
+                <div className='buttons-wrapper'>
+                  <button
+                    className='ok'
+                  >
+                    Assign
+                  </button>
+                  <button
+                    className='cancel'
+                    onClick={() => {
+                      this.resetState();
+                    }}
+                  >
+                    Cancel
+                  </button>
+                </div>
+              </div>
+            )
+            : null
+        }
+
+        {
+          assignVideos
+            ? (
+              <div className='assign-videos-panel action-panel'>
+                <span className='title'>Assign videos</span>
+                <span className='description'>Select the videos you want to assign</span>
+                <span className='description'>Assign videos to</span>
+
+                <div className='inputs-wrapper'>
+                  <input type='text' placeholder='email@email.com'/>
+                  <button>Add</button>
+                </div>
+
+                <span className='small'>Add the email addresses of the people that will have this bundle assigned</span>
+
+                <div className='buttons-wrapper'>
+                  <button
+                    className='ok'
+                  >
+                    Assign
+                  </button>
+                  <button
+                    className='cancel'
+                    onClick={() => {
+                      this.resetState();
+                    }}
+                  >
+                    Cancel
+                  </button>
+                </div>
+              </div>
+            )
+            : null
+        }
+
         <div className='panel-content-wrapper container-fluid'>
           <div className='row'>
             {
@@ -107,18 +193,18 @@ export default class VideosPanel extends Component {
                   key={`video-${index}`}
                   video={video}
                   number={index}
-                  selectable={assignVideosFunctionality}
-                  selected={assignedVideos.find(v => v.id === video.id)}
+                  selectable={selectVideosFunctionality}
+                  selected={selectedVideos.find(v => v.id === video.id)}
                   onSelect={(video) => {
-                    const { assignedVideos: editVideos } = this.state;
+                    const { selectedVideos: editVideos } = this.state;
                     editVideos.push(video);
-                    this.setState({ assignedVideos: editVideos });
+                    this.setState({ selectedVideos: editVideos });
                   }}
                   onDeselect={(video) => {
-                    const { assignedVideos: editVideos } = this.state;
-                    const removeVideoIndex = assignedVideos.findIndex(v => v.id === video.id);
+                    const { selectedVideos: editVideos } = this.state;
+                    const removeVideoIndex = selectedVideos.findIndex(v => v.id === video.id);
                     this.setState({
-                      assignedVideos: [
+                      selectedVideos: [
                         ...editVideos.slice(0, removeVideoIndex),
                         ...editVideos.slice(removeVideoIndex + 1),
                       ],

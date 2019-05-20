@@ -2,6 +2,21 @@
   .App-panel {
     padding: 2.25rem 2.125rem;
 
+    button {
+      font-size: 0.875rem;
+      padding: 0.8rem;
+      border: none;
+      border-radius: 4px;
+      color: var(--white);
+      margin: 0 0.25rem;
+      cursor: pointer;
+      background-color: var(--blue);
+
+      &:disabled {
+        opacity: 0.5;
+      }
+    }
+
     > .panel-header {
       display: flex;
       justify-content: space-between;
@@ -12,17 +27,6 @@
       }
 
       button {
-        font-size: 0.875rem;
-        padding: 0.8rem;
-        border: none;
-        border-radius: 4px;
-        color: var(--white);
-        margin: 0 0.25rem;
-        cursor: pointer;
-
-        &:disabled {
-          opacity: 0.5;
-        }
 
         &.bundle {
           background-color: var(--orange);
@@ -44,6 +48,64 @@
     > .panel-filter-container {
       span {
         margin-right: 0.5rem;
+      }
+    }
+
+    > .action-panel {
+      padding: 2.25rem 1.625rem;
+      margin-top: 1.5rem;
+      box-shadow: 0px 0px 5px 0px var(--grey);
+      border-radius: 4px;
+
+      button {
+        &.cancel {
+          background-color: transparent;
+          color: var(--black);
+        }
+        &.ok {
+          background-color: var(--light-green);
+        }
+      }
+
+      .inputs-wrapper {
+        margin-bottom: 0.5rem;
+
+        input {
+          padding: 0.7rem;
+          font-size: 1rem;
+          width: 17rem;
+        }
+
+        button {
+          background-color: var(--green);
+        }
+      }
+
+      span {
+        display: block;
+
+        &.title {
+          font-size: 1.2rem;
+          padding-bottom: 0.4rem;
+          font-weight: bold;
+          border-bottom: solid 1px var(--grey);
+          margin-bottom: 0.7rem;
+        }
+
+        &.description {
+          font-weight: bold;
+          margin-bottom: 0.4rem;
+          margin-top: 1rem;
+        }
+
+        &.small {
+          font-size: 0.7rem;
+          color: var(--dark-grey);
+        }
+      }
+
+      .buttons-wrapper {
+        margin-top: 1rem;
       }
     }
 

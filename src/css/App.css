@@ -8,6 +8,7 @@
   --dark-grey: #51606C;
   --orange: #F59231;
   --green: #1AA89D;
+  --light-green: #83C729;
 
   --sm: 576px;
   --md: 768px;
@@ -113,6 +114,21 @@ body {
     padding: 2.25rem 2.125rem;
   }
 
+.App .App-panel button {
+      font-size: 0.875rem;
+      padding: 0.8rem;
+      border: none;
+      border-radius: 4px;
+      color: var(--white);
+      margin: 0 0.25rem;
+      cursor: pointer;
+      background-color: var(--blue)
+    }
+
+.App .App-panel button:disabled {
+        opacity: 0.5;
+      }
+
 .App .App-panel > .panel-header {
       display: flex;
       justify-content: space-between;
@@ -122,20 +138,6 @@ body {
 .App .App-panel > .panel-header span {
         padding: 1rem;
       }
-
-.App .App-panel > .panel-header button {
-        font-size: 0.875rem;
-        padding: 0.8rem;
-        border: none;
-        border-radius: 4px;
-        color: var(--white);
-        margin: 0 0.25rem;
-        cursor: pointer
-      }
-
-.App .App-panel > .panel-header button:disabled {
-          opacity: 0.5;
-        }
 
 .App .App-panel > .panel-header button.bundle {
           background-color: var(--orange);
@@ -156,6 +158,63 @@ body {
 
 .App .App-panel > .panel-filter-container span {
         margin-right: 0.5rem;
+      }
+
+.App .App-panel > .action-panel {
+      padding: 2.25rem 1.625rem;
+      margin-top: 1.5rem;
+      box-shadow: 0px 0px 5px 0px var(--grey);
+      border-radius: 4px;
+    }
+
+.App .App-panel > .action-panel button.cancel {
+          background-color: transparent;
+          color: var(--black);
+        }
+
+.App .App-panel > .action-panel button.ok {
+          background-color: var(--light-green);
+        }
+
+.App .App-panel > .action-panel .inputs-wrapper {
+        margin-bottom: 0.5rem;
+      }
+
+.App .App-panel > .action-panel .inputs-wrapper input {
+          padding: 0.7rem;
+          font-size: 1rem;
+          width: 17rem;
+        }
+
+.App .App-panel > .action-panel .inputs-wrapper button {
+          background-color: var(--green);
+        }
+
+.App .App-panel > .action-panel span {
+        display: block
+      }
+
+.App .App-panel > .action-panel span.title {
+          font-size: 1.2rem;
+          padding-bottom: 0.4rem;
+          font-weight: bold;
+          border-bottom: solid 1px var(--grey);
+          margin-bottom: 0.7rem;
+        }
+
+.App .App-panel > .action-panel span.description {
+          font-weight: bold;
+          margin-bottom: 0.4rem;
+          margin-top: 1rem;
+        }
+
+.App .App-panel > .action-panel span.small {
+          font-size: 0.7rem;
+          color: var(--dark-grey);
+        }
+
+.App .App-panel > .action-panel .buttons-wrapper {
+        margin-top: 1rem;
       }
 
 .App .App-panel > .panel-content-wrapper {
