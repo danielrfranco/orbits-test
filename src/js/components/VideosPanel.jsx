@@ -3,36 +3,42 @@ import { Video } from './generic';
 
 const videos = [
   {
+    id: 4,
     title: 'Classification of Items',
     duration: '04:21 min',
     type: 'Admin',
     previewImage: 'https://placeimg.com/352/200/tech',
   },
   {
+    id: 8,
     title: 'Employee Maintenance',
     duration: '05:57 min',
     type: 'Admin',
     previewImage: 'https://placeimg.com/352/200/tech',
   },
   {
+    id: 5,
     title: 'Vendor and Location',
     duration: '05:48 min',
     type: 'Admin',
     previewImage: 'https://placeimg.com/352/200/tech',
   },
   {
+    id: 7,
     title: 'Dashboard, Find and Item Detail Page',
     duration: '07:26 min',
     type: 'Dashboard',
     previewImage: 'https://placeimg.com/352/200/tech',
   },
   {
+    id: 6,
     title: 'Help, Support, Switch',
     duration: '03:08 min',
     type: 'Inventory',
     previewImage: 'https://placeimg.com/352/200/tech',
   },
   {
+    id: 1,
     title: 'Items and Locations',
     duration: '04:43 min',
     type: 'Inventory',
@@ -50,7 +56,9 @@ export default class VideosPanel extends Component {
   }
 
   render() {
-    const { assignVideosFunctionality } = this.state;
+    const {
+      assignVideosFunctionality, assignedVideos,
+    } = this.state;
 
     return (
       <div className='App-panel'>
@@ -94,15 +102,28 @@ export default class VideosPanel extends Component {
         <div className='panel-content-wrapper container-fluid'>
           <div className='row'>
             {
-              videos.map((video, key) => (
+              videos.map((video, index) => (
                 <Video
-                  key={`video-${key}`}
-                  number={key}
-                  title={video.title}
-                  duration={video.duration}
-                  type={video.type}
-                  previewImage={video.previewImage}
+                  key={`video-${index}`}
+                  video={video}
+                  number={index}
                   selectable={assignVideosFunctionality}
+                  selected={assignedVideos.find(v => v.id === video.id)}
+                  onSelect={(video) => {
+                    const { assignedVideos: editVideos } = this.state;
+                    editVideos.push(video);
+                    this.setState({ assignedVideos: editVideos });
+                  }}
+                  onDeselect={(video) => {
+                    const { assignedVideos: editVideos } = this.state;
+                    const removeVideoIndex = assignedVideos.findIndex(v => v.id === video.id);
+                    this.setState({
+                      assignedVideos: [
+                        ...editVideos.slice(0, removeVideoIndex),
+                        ...editVideos.slice(removeVideoIndex + 1),
+                      ],
+                    });
+                  }}
                 />
               ))
             }

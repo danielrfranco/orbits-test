@@ -6,7 +6,6 @@ module.exports = {
       stage: 1,
     }),
     require('postcss-nested'),
-    require('postcss-grid-kiss')({ optimize: false }),
     require('autoprefixer'),
   ],
 };

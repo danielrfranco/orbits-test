@@ -53,6 +53,33 @@
       .video-card {
         margin-bottom: 1.5rem;
 
+        &.selectable {
+          cursor: pointer;
+
+          > .video-container{
+            > .type {
+              display: none;
+            }
+          }
+
+          &.selected {
+            > .video-container{
+              > .type {
+                display: none;
+              }
+
+              > .duration {
+                background-color: var(--orange);
+              }
+            }
+
+            > .video-title {
+              background-color: var(--orange);
+              color: var(--white);
+            }
+          }
+        }
+
         > .video-container {
           margin-bottom: 1rem;
           box-shadow: 0px 0px 8px 0px var(--grey);
@@ -66,6 +93,32 @@
             max-width: 100%;
             border-radius: 4px;
             visibility: hidden;
+          }
+
+          > .select-btn {
+            position: absolute;
+            top: 2px;
+            right: 2px;
+            color: var(--white);
+
+            &.selected {
+              color: var(--orange);
+            }
+          }
+
+          > .play-btn {
+            display: flex;
+            position: absolute;
+            margin: 0 auto;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            font-size: 5rem;
+            color: white;
+            background: rgba(0,0,0, 0.3);
+            align-items: center;
+            justify-content: center;
           }
 
           > .type {

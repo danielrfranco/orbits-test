@@ -6,7 +6,7 @@
   --electric-blue: #007CEF;
   --grey: #D6D6D6;
   --dark-grey: #51606C;
-  --orange: #EA8231;
+  --orange: #F59231;
   --green: #1AA89D;
 
   --sm: 576px;
@@ -163,8 +163,29 @@ body {
     }
 
 .App .App-panel > .panel-content-wrapper .video-card {
-        margin-bottom: 1.5rem;
+        margin-bottom: 1.5rem
       }
+
+.App .App-panel > .panel-content-wrapper .video-card.selectable {
+          cursor: pointer;
+        }
+
+.App .App-panel > .panel-content-wrapper .video-card.selectable > .video-container > .type {
+              display: none;
+            }
+
+.App .App-panel > .panel-content-wrapper .video-card.selectable.selected > .video-container > .type {
+                display: none;
+              }
+
+.App .App-panel > .panel-content-wrapper .video-card.selectable.selected > .video-container > .duration {
+                background-color: var(--orange);
+              }
+
+.App .App-panel > .panel-content-wrapper .video-card.selectable.selected > .video-title {
+              background-color: var(--orange);
+              color: var(--white);
+            }
 
 .App .App-panel > .panel-content-wrapper .video-card > .video-container {
           margin-bottom: 1rem;
@@ -179,6 +200,32 @@ body {
             max-width: 100%;
             border-radius: 4px;
             visibility: hidden;
+          }
+
+.App .App-panel > .panel-content-wrapper .video-card > .video-container > .select-btn {
+            position: absolute;
+            top: 2px;
+            right: 2px;
+            color: var(--white)
+          }
+
+.App .App-panel > .panel-content-wrapper .video-card > .video-container > .select-btn.selected {
+              color: var(--orange);
+            }
+
+.App .App-panel > .panel-content-wrapper .video-card > .video-container > .play-btn {
+            display: flex;
+            position: absolute;
+            margin: 0 auto;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            font-size: 5rem;
+            color: white;
+            background: rgba(0,0,0, 0.3);
+            align-items: center;
+            justify-content: center;
           }
 
 .App .App-panel > .panel-content-wrapper .video-card > .video-container > .type {
