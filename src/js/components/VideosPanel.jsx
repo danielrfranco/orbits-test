@@ -53,12 +53,21 @@ export default class VideosPanel extends Component {
       selectVideosFunctionality: false,
       selectedVideos: [],
       assignVideos: false,
+      emailValue: '',
+      emailsAssigned: [],
       createBundle: false,
+      bundleName: '',
       selectAll: false,
     };
 
     this.resetState = this.resetState.bind(this);
     this.renderTags = this.renderTags.bind(this);
+    this.renderBundle = this.renderBundle.bind(this);
+    this.renderAssignVideos = this.renderAssignVideos.bind(this);
+    this.renderEmails = this.renderEmails.bind(this);
+    
+    this.isBundleComplete = this.isBundleComplete.bind(this);
+    this.isVideosAssignmentComplete = this.isVideosAssignmentComplete.bind(this);
   }
 
   resetState() {
@@ -66,9 +75,22 @@ export default class VideosPanel extends Component {
       selectVideosFunctionality: false,
       selectedVideos: [],
       assignVideos: false,
+      emailValue: '',
+      emailsAssigned: [],
       createBundle: false,
+      bundleName: '',
       selectAll: false,
     });
+  }
+
+  isBundleComplete() {
+    const { selectedVideos, bundleName } = this.state;
+    return (selectedVideos.length > 0 && bundleName.length > 0);
+  }
+
+  isVideosAssignmentComplete() {
+    const { emailsAssigned, selectedVideos } = this.state;
+    return (emailsAssigned.length > 0 && selectedVideos.length > 0);
   }
 
   renderTags() {
@@ -118,6 +140,124 @@ export default class VideosPanel extends Component {
     );
   }
 
+  renderEmails() {
+    const { emailsAssigned } = this.state;
+
+    return emailsAssigned.map(e => (
+      <span>{e}</span>
+    ));
+  }
+
+  renderBundle() {
+    const {
+      bundleName
+    } = this.state;
+
+    return (
+      <div className='create-bundle-panel action-panel'>
+        <span className='title'>Create bundle</span>
+
+        <input
+          type='text'
+          className='big'
+          placeholder='Add Bundle Name'
+          value={bundleName}
+          onChange={(event) => {
+            this.setState({
+              bundleName: event.target.value
+            });
+          }}
+        />
+
+        <span className='description'>Select the videos you want to add to the bundle</span>
+
+        {this.renderTags()}
+
+        <div className='buttons-wrapper'>
+          <button
+            className='ok'
+            disabled={!this.isBundleComplete()}
+          >
+            Create
+          </button>
+          <button
+            className='cancel'
+            onClick={() => {
+              this.resetState();
+            }}
+          >
+            Cancel
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  renderAssignVideos() {
+    const { emailValue } = this.state;
+
+    return (
+      <div className='assign-videos-panel action-panel'>
+        <span className='title'>Assign videos</span>
+        <span className='description'>Select the videos you want to assign</span>
+
+        {this.renderTags()}
+        
+        <span className='description'>Assign videos to</span>
+
+        <div className='inputs-wrapper'>
+          <input
+            type='text'
+            placeholder='email@email.com'
+            value={emailValue}
+            onChange={(event) => {
+              this.setState({
+                emailValue: event.target.value
+              });
+            }}
+          />
+          <button
+            disabled={!emailValue.length}
+            onClick={() => {
+              const emails = [];
+              emails.push(emailValue);
+              this.setState({
+                emailValue: '',
+                emailsAssigned: [
+                  this.state.emailsAssigned,
+                  ...emails
+                ],
+              });
+            }}
+          >
+            Add
+          </button>
+        </div>
+
+        <span className='small'>Add the email addresses of the people that will have this bundle assigned</span>
+
+        { this.renderEmails() }
+
+        <div className='buttons-wrapper'>
+          <button
+            disabled={!this.isVideosAssignmentComplete()}
+            className='ok'
+          >
+            Assign
+          </button>
+          <button
+            className='cancel'
+            onClick={() => {
+              this.resetState();
+            }}
+          >
+            Cancel
+          </button>
+        </div>
+      </div>
+    );
+  }
+
   render() {
     const {
       selectVideosFunctionality, selectedVideos,
@@ -160,7 +300,7 @@ export default class VideosPanel extends Component {
               <i className='fas fa-play'></i>
               Assign Videos
             </button>
-            <button className='search'>
+            <button disabled={selectVideosFunctionality} className='search'>
               <i className='fas fa-search'></i>
             </button>
           </div>
@@ -174,70 +314,11 @@ export default class VideosPanel extends Component {
         </div>
 
         {
-          createBundle
-            ? (
-              <div className='create-bundle-panel action-panel'>
-                <span className='title'>Create bundle</span>
-                <span className='description'>Select the videos you want to add to the bundle</span>
-
-                {this.renderTags()}
-
-                <div className='buttons-wrapper'>
-                  <button
-                    className='ok'
-                  >
-                    Assign
-                  </button>
-                  <button
-                    className='cancel'
-                    onClick={() => {
-                      this.resetState();
-                    }}
-                  >
-                    Cancel
-                  </button>
-                </div>
-              </div>
-            )
-            : null
+          createBundle ? this.renderBundle() : null
         }
 
         {
-          assignVideos
-            ? (
-              <div className='assign-videos-panel action-panel'>
-                <span className='title'>Assign videos</span>
-                <span className='description'>Select the videos you want to assign</span>
-
-                {this.renderTags()}
-                
-                <span className='description'>Assign videos to</span>
-
-                <div className='inputs-wrapper'>
-                  <input type='text' placeholder='email@email.com'/>
-                  <button>Add</button>
-                </div>
-
-                <span className='small'>Add the email addresses of the people that will have this bundle assigned</span>
-
-                <div className='buttons-wrapper'>
-                  <button
-                    className='ok'
-                  >
-                    Assign
-                  </button>
-                  <button
-                    className='cancel'
-                    onClick={() => {
-                      this.resetState();
-                    }}
-                  >
-                    Cancel
-                  </button>
-                </div>
-              </div>
-            )
-            : null
+          assignVideos ? this.renderAssignVideos(): null
         }
 
         <div className='panel-content-wrapper container-fluid'>
