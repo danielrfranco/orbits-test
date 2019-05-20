@@ -57,6 +57,34 @@
       box-shadow: 0px 0px 5px 0px var(--grey);
       border-radius: 4px;
 
+      .tags-container {
+
+        > .tags-wrapper {
+          display: flex;
+          
+          > .tag {
+            background-color: var(--orange);
+            color: var(--white);
+            text-transform: uppercase;
+            margin-right: 0.5rem;
+            padding: 0.3rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+
+            > button {
+              padding: 0;
+              background-color: transparent;
+            }
+          }
+        }
+
+        > label {
+          display: block;
+          margin: 0.5rem 0;
+        }
+
+      }
+
       button {
         &.cancel {
           background-color: transparent;
@@ -81,7 +109,7 @@
         }
       }
 
-      span {
+      > span {
         display: block;
 
         &.title {

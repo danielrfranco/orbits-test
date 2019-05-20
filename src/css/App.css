@@ -167,6 +167,30 @@ body {
       border-radius: 4px;
     }
 
+.App .App-panel > .action-panel .tags-container > .tags-wrapper {
+          display: flex;
+        }
+
+.App .App-panel > .action-panel .tags-container > .tags-wrapper > .tag {
+            background-color: var(--orange);
+            color: var(--white);
+            text-transform: uppercase;
+            margin-right: 0.5rem;
+            padding: 0.3rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+          }
+
+.App .App-panel > .action-panel .tags-container > .tags-wrapper > .tag > button {
+              padding: 0;
+              background-color: transparent;
+            }
+
+.App .App-panel > .action-panel .tags-container > label {
+          display: block;
+          margin: 0.5rem 0;
+        }
+
 .App .App-panel > .action-panel button.cancel {
           background-color: transparent;
           color: var(--black);
@@ -190,11 +214,11 @@ body {
           background-color: var(--green);
         }
 
-.App .App-panel > .action-panel span {
+.App .App-panel > .action-panel > span {
         display: block
       }
 
-.App .App-panel > .action-panel span.title {
+.App .App-panel > .action-panel > span.title {
           font-size: 1.2rem;
           padding-bottom: 0.4rem;
           font-weight: bold;
@@ -202,13 +226,13 @@ body {
           margin-bottom: 0.7rem;
         }
 
-.App .App-panel > .action-panel span.description {
+.App .App-panel > .action-panel > span.description {
           font-weight: bold;
           margin-bottom: 0.4rem;
           margin-top: 1rem;
         }
 
-.App .App-panel > .action-panel span.small {
+.App .App-panel > .action-panel > span.small {
           font-size: 0.7rem;
           color: var(--dark-grey);
         }

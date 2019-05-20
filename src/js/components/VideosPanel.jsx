@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
-import { Video } from './generic';
+import { Video, Tag } from './generic';
 
 const videos = [
+  {
+    id: 1,
+    title: 'Items and Locations',
+    duration: '04:43 min',
+    type: 'Inventory',
+    previewImage: 'https://placeimg.com/352/200/tech',
+  },
   {
     id: 4,
     title: 'Classification of Items',
     duration: '04:21 min',
-    type: 'Admin',
-    previewImage: 'https://placeimg.com/352/200/tech',
-  },
-  {
-    id: 8,
-    title: 'Employee Maintenance',
-    duration: '05:57 min',
     type: 'Admin',
     previewImage: 'https://placeimg.com/352/200/tech',
   },
@@ -24,13 +24,6 @@ const videos = [
     previewImage: 'https://placeimg.com/352/200/tech',
   },
   {
-    id: 7,
-    title: 'Dashboard, Find and Item Detail Page',
-    duration: '07:26 min',
-    type: 'Dashboard',
-    previewImage: 'https://placeimg.com/352/200/tech',
-  },
-  {
     id: 6,
     title: 'Help, Support, Switch',
     duration: '03:08 min',
@@ -38,10 +31,17 @@ const videos = [
     previewImage: 'https://placeimg.com/352/200/tech',
   },
   {
-    id: 1,
-    title: 'Items and Locations',
-    duration: '04:43 min',
-    type: 'Inventory',
+    id: 7,
+    title: 'Dashboard, Find and Item Detail Page',
+    duration: '07:26 min',
+    type: 'Dashboard',
+    previewImage: 'https://placeimg.com/352/200/tech',
+  },
+  {
+    id: 8,
+    title: 'Employee Maintenance',
+    duration: '05:57 min',
+    type: 'Admin',
     previewImage: 'https://placeimg.com/352/200/tech',
   },
 ];
@@ -54,9 +54,11 @@ export default class VideosPanel extends Component {
       selectedVideos: [],
       assignVideos: false,
       createBundle: false,
+      selectAll: false,
     };
 
     this.resetState = this.resetState.bind(this);
+    this.renderTags = this.renderTags.bind(this);
   }
 
   resetState() {
@@ -65,7 +67,55 @@ export default class VideosPanel extends Component {
       selectedVideos: [],
       assignVideos: false,
       createBundle: false,
+      selectAll: false,
     });
+  }
+
+  renderTags() {
+    const { selectedVideos } = this.state;
+
+    return (
+      <div className='tags-container'>
+        <div className='tags-wrapper'>
+          {
+            selectedVideos.map((v, index) => (
+              <Tag
+                key={`tag-${index}`}
+                video={v}
+                onRemove={(video) => {
+                  const { selectedVideos: editVideos } = this.state;
+                  const removeVideoIndex = selectedVideos.findIndex(v => v.id === video.id);
+                  this.setState({
+                    selectedVideos: [
+                      ...editVideos.slice(0, removeVideoIndex),
+                      ...editVideos.slice(removeVideoIndex + 1),
+                    ],
+                  });
+                }}
+              />
+            ))
+          }
+        </div>
+
+        <label>
+          <input
+            type="checkbox"
+            checked={this.state.isGoing}
+            onChange={(event) => {
+              const target = event.target;
+              const selected = target.checked;
+
+              this.setState({
+                selectedVideos: selected ? [...videos] : [],
+                selectAll: selected,
+              });
+            }}
+          />
+
+          Select all videos
+        </label>
+      </div>
+    );
   }
 
   render() {
@@ -130,6 +180,8 @@ export default class VideosPanel extends Component {
                 <span className='title'>Create bundle</span>
                 <span className='description'>Select the videos you want to add to the bundle</span>
 
+                {this.renderTags()}
+
                 <div className='buttons-wrapper'>
                   <button
                     className='ok'
@@ -156,6 +208,9 @@ export default class VideosPanel extends Component {
               <div className='assign-videos-panel action-panel'>
                 <span className='title'>Assign videos</span>
                 <span className='description'>Select the videos you want to assign</span>
+
+                {this.renderTags()}
+                
                 <span className='description'>Assign videos to</span>
 
                 <div className='inputs-wrapper'>
@@ -192,7 +247,6 @@ export default class VideosPanel extends Component {
                 <Video
                   key={`video-${index}`}
                   video={video}
-                  number={index}
                   selectable={selectVideosFunctionality}
                   selected={selectedVideos.find(v => v.id === video.id)}
                   onSelect={(video) => {

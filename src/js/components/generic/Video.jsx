@@ -13,7 +13,7 @@ export default class Video extends PureComponent {
 
   render() {
     const {
-      video, number, selectable, selected,
+      video, selectable, selected,
 
       onSelect, onDeselect,
     } = this.props;
@@ -66,7 +66,7 @@ export default class Video extends PureComponent {
           </div>
 
           <div className='video-title'>
-            <span className='number'>{this.formatNumber(number)}</span>
+            <span className='number'>{this.formatNumber(video.id)}</span>
             <span className='title'>{video.title}</span>
           </div>
 
