@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './css/bootstrap-grid.min.css';
+import '@fortawesome/fontawesome-free/css/all.min.css';
+import 'bootstrap/dist/css/bootstrap-grid.min.css';
 import './css/App.css';
 import App from './js/App';
 import * as serviceWorker from './js/serviceWorker';

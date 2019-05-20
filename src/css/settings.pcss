@@ -1,11 +1,19 @@
 :root {
   --black: #303030;
   --white: #ffffff;
-  --blue: #053659;
-  --blue-2: #094878;
-  --grey: #CBCBCB;
-  --dark-grey: #404D59;
-  --orange: #E76E19;
+  --blue: #06486B;
+  --blue-2: #0B5C89;
+  --electric-blue: #007CEF;
+  --grey: #D6D6D6;
+  --dark-grey: #51606C;
+  --orange: #F59231;
+  --green: #1AA89D;
+  --light-green: #83C729;
+
+  --sm: 576px;
+  --md: 768px;
+  --lg: 992px;
+  --xl: 1200px;
 }
 
 body {
@@ -17,6 +25,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-size: 16px;
   color: var(--black);
+}
+
+.App {
+  > .content-wrapper {
+    min-height: calc( 100vh - 4.125rem );
+  }
 }
 
 .App-link {
