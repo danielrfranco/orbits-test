@@ -18,15 +18,24 @@
     }
 
     > .panel-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+
+      @media (min-width: 992px) {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
 
       span {
         padding: 1rem;
+        display: block;
+
+        @media (min-width: 992px) {
+          display: inline-block;
+        }
       }
 
       button {
+        margin-bottom: 0.5rem;
 
         &.bundle {
           background-color: var(--orange);

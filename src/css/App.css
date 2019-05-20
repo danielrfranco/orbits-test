@@ -129,14 +129,29 @@ body {
         opacity: 0.5;
       }
 
-.App .App-panel > .panel-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+@media (min-width: 992px) {
+
+    .App .App-panel > .panel-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center
     }
+      }
 
 .App .App-panel > .panel-header span {
         padding: 1rem;
+        display: block
+      }
+
+@media (min-width: 992px) {
+
+      .App .App-panel > .panel-header span {
+          display: inline-block
+      }
+        }
+
+.App .App-panel > .panel-header button {
+        margin-bottom: 0.5rem
       }
 
 .App .App-panel > .panel-header button.bundle {
