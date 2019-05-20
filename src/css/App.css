@@ -152,16 +152,20 @@ body {
 .App .App-panel > .panel-content-wrapper {
 	display: grid;
 	align-content: stretch;
-
-      grid-template: "a" 6.25rem "." 1.5rem "a" 6.25rem / 1fr
+	grid-template-rows: 6.25rem 1.5rem 6.25rem;
+	grid-template-columns: 1fr;
+	grid-template-areas: 
+      "vid"
+      "..."
+      "vid"
     }
 
 .App .App-panel > .panel-content-wrapper > .vid {
-	grid-area: a;
+	grid-area: vid;
 }
 
 .App .App-panel > .panel-content-wrapper > .vid {
-	grid-area: a;
+	grid-area: vid;
 }
 
 @media (min-width: 578px) {
@@ -170,23 +174,28 @@ body {
 	display: grid;
 	align-content: stretch;
 	justify-content: space-between;
-        grid-template: "a . a" 6.25rem ". . ." 1.5rem "a . a" 6.25rem / 1fr 2.125rem 1fr
+	grid-template-rows: 6.25rem 1.5rem 6.25rem;
+	grid-template-columns: 1fr 2.125rem 1fr;
+	grid-template-areas: 
+        "vid ... vid"
+        "... ... ..."
+        "vid ... vid"
     }
 
 .App .App-panel > .panel-content-wrapper > .vid {
-	grid-area: a;
+	grid-area: vid;
 }
 
 .App .App-panel > .panel-content-wrapper > .vid {
-	grid-area: a;
+	grid-area: vid;
 }
 
 .App .App-panel > .panel-content-wrapper > .vid {
-	grid-area: a;
+	grid-area: vid;
 }
 
 .App .App-panel > .panel-content-wrapper > .vid {
-	grid-area: a;
+	grid-area: vid;
 }
       }
 
@@ -196,31 +205,36 @@ body {
 	display: grid;
 	align-content: stretch;
 	justify-content: space-between;
-        grid-template: "a . a . a" 6.25rem ". . . . ." 1.5rem "a . a . a" 6.25rem / 1fr 2.125rem 1fr 2.125rem 1fr
+	grid-template-rows: 6.25rem 1.5rem 6.25rem;
+	grid-template-columns: 1fr 2.125rem 1fr 2.125rem 1fr;
+	grid-template-areas: 
+        "vid ... vid ... vid"
+        "... ... ... ... ..."
+        "vid ... vid ... vid"
     }
 
 .App .App-panel > .panel-content-wrapper > .vid {
-	grid-area: a;
+	grid-area: vid;
 }
 
 .App .App-panel > .panel-content-wrapper > .vid {
-	grid-area: a;
+	grid-area: vid;
 }
 
 .App .App-panel > .panel-content-wrapper > .vid {
-	grid-area: a;
+	grid-area: vid;
 }
 
 .App .App-panel > .panel-content-wrapper > .vid {
-	grid-area: a;
+	grid-area: vid;
 }
 
 .App .App-panel > .panel-content-wrapper > .vid {
-	grid-area: a;
+	grid-area: vid;
 }
 
 .App .App-panel > .panel-content-wrapper > .vid {
-	grid-area: a;
+	grid-area: vid;
 }
       }
 
@@ -228,55 +242,62 @@ body {
 
     .App .App-panel > .panel-content-wrapper {
 	display: grid;
-	align-content: space-between;  
-        grid-template: "a . a . a . a" 6.25rem ". . . . . . ." 1.5rem "a . a . a . a" 6.25rem ". . . . . . ." 1.5rem "a . a . a . a" 6.25rem / 1fr 2.125rem 1fr 2.125rem 1fr 2.125rem 1fr
+	align-content: space-between;
+	grid-template-rows: 6.25rem 1.5rem 6.25rem 1.5rem 6.25rem;
+	grid-template-columns: 1fr 2.125rem 1fr 2.125rem 1fr 2.125rem 1fr;
+	grid-template-areas: 
+        "vid ... vid ... vid ... vid"
+        "... ... ... ... ... ... ..."
+        "vid ... vid ... vid ... vid"
+        "... ... ... ... ... ... ..."
+        "vid ... vid ... vid ... vid"
     }
 
 .App .App-panel > .panel-content-wrapper > .vid {
-	grid-area: a;
+	grid-area: vid;
 }
 
 .App .App-panel > .panel-content-wrapper > .vid {
-	grid-area: a;
+	grid-area: vid;
 }
 
 .App .App-panel > .panel-content-wrapper > .vid {
-	grid-area: a;
+	grid-area: vid;
 }
 
 .App .App-panel > .panel-content-wrapper > .vid {
-	grid-area: a;
+	grid-area: vid;
 }
 
 .App .App-panel > .panel-content-wrapper > .vid {
-	grid-area: a;
+	grid-area: vid;
 }
 
 .App .App-panel > .panel-content-wrapper > .vid {
-	grid-area: a;
+	grid-area: vid;
 }
 
 .App .App-panel > .panel-content-wrapper > .vid {
-	grid-area: a;
+	grid-area: vid;
 }
 
 .App .App-panel > .panel-content-wrapper > .vid {
-	grid-area: a;
+	grid-area: vid;
 }
 
 .App .App-panel > .panel-content-wrapper > .vid {
-	grid-area: a;
+	grid-area: vid;
 }
 
 .App .App-panel > .panel-content-wrapper > .vid {
-	grid-area: a;
+	grid-area: vid;
 }
 
 .App .App-panel > .panel-content-wrapper > .vid {
-	grid-area: a;
+	grid-area: vid;
 }
 
 .App .App-panel > .panel-content-wrapper > .vid {
-	grid-area: a;
+	grid-area: vid;
 }
       }
