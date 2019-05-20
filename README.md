@@ -4,7 +4,7 @@ This proyect was created as a skills test
 
 ## How to run
 
-In order to run this project, you will need to clone this repo to your preferred directory. Use the following commands in you terminal.
+In order to run this project, you will need to clone this repo to your preferred directory. Use the following commands in your terminal.
 
 ### 1. Clone
 
@@ -20,7 +20,6 @@ $ yarn
 
 ### 3. Run
 
-**Yarn**
 ```
 $ yarn start
 ```
