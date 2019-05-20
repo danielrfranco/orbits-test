@@ -1,6 +1,6 @@
 # Orbits Test App
 
-This proyect was created as a skills test
+This proyect was created as a skills test. This project is built on React.js and uses Yarn to manage dependencies. If you have not installed Yarn on your computer yet, you will need to follow the installation instruction here https://yarnpkg.com/en/docs/install.
 
 ## How to run
 
