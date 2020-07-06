@@ -5,9 +5,7 @@ export const Video = ({
 
   onSelect, onDeselect,
 }) => {
-  const formatNumber = (number) => {
-    return ("0" + (number + 1)).slice(-2);
-  };
+  const formatNumber = (number) => ("0" + (number + 1)).slice(-2);
 
   return (
     <div className='col-sm-6 col-lg-4 col-xl-3'>

@@ -25,7 +25,7 @@ export const VideosPanel = () => {
   };
 
   const isBundleComplete = () => ( selectedVideos.length > 0 && bundleName.length > 0 );
-
+  
   const isVideosAssignmentComplete = () => ( emailsAssigned.length > 0 && selectedVideos.length > 0 );
 
   const renderTags = () => (
@@ -56,7 +56,7 @@ export const VideosPanel = () => {
             const target = event.target;
             const selected = target.checked;
 
-            setselectedVideos([selected ? videos : []]);
+            setselectedVideos(selected ? [...videos] : []);
             setselectAll(selected);
           }}
         />
