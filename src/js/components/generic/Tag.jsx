@@ -1,34 +1,27 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 
-export default class Tag extends PureComponent {
-  constructor(props) {
-    super(props);
+export const Tag = ({
+  video,
+  onRemove,
+}) => {
 
-    this.formatNumber = this.formatNumber.bind(this);
-  }
-  
-  formatNumber(number) {
+  const formatNumber = (number) => {
     return ("0" + (number + 1)).slice(-2);
   }
 
-  render() {
-    const {
-      video,
-      onRemove,
-    } = this.props;
+  return (
+    <div className='tag'>
+      <span>{`Video ${formatNumber(video.id)}`}</span>
+      <button
+        className='delete'
+        onClick={() => {
+          onRemove(video);
+        }}
+      >
+        <i className="fas fa-times-circle"></i>
+      </button>
+    </div>
+  );
+};
 
-    return (
-      <div className='tag'>
-        <span>{`Video ${this.formatNumber(video.id)}`}</span>
-        <button
-          className='delete'
-          onClick={() => {
-            onRemove(video);
-          }}
-        >
-          <i className="fas fa-times-circle"></i>
-        </button>
-      </div>
-    );
-  }
-}
+export default Tag;

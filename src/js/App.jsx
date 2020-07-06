@@ -5,28 +5,24 @@ import {
   Topbar, Sidebar, VideosPanel,
 } from './components';
 
-function App() {
-  return (
-    <div className='App'>
+export const App = () => (
+  <div className='App'>
+    <Topbar />
+
+    <div className='container-fluid content-wrapper'>
+      <div className='row'>
       
-      <Topbar />
-
-      <div className='container-fluid content-wrapper'>
-        <div className='row'>
-        
-          <div className='col-md-2'>
-            <Sidebar />
-          </div>
-
-          <div className='col-md-10'>
-            <VideosPanel />
-          </div>
-
+        <div className='col-md-2'>
+          <Sidebar />
         </div>
-      </div>
 
+        <div className='col-md-10'>
+          <VideosPanel />
+        </div>
+
+      </div>
     </div>
-  );
-}
+  </div>
+);
 
 export default App;
